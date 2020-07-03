@@ -1,0 +1,14 @@
+github.com/gorilla/handlers v1.4.0/go.mod h1:Qkdc/uu4tH4g6mTK6auzZ766c4CA0Ng8+o/OAirnOIQ=
+github.com/gorilla/handlers v1.4.2 h1:0QniY0USkHQ1RGCLfKxeNHK9bkDHGRYGNDFBCS+YARg=
+github.com/gorilla/handlers v1.4.2/go.mod h1:Qkdc/uu4tH4g6mTK6auzZ766c4CA0Ng8+o/OAirnOIQ=
+github.com/gorilla/mux v1.7.0/go.mod h1:1lud6UwP+6orDFRuTfBEV8e9/aOM/c4fVVCaMa2zaAs=
+github.com/gorilla/mux v1.7.4 h1:VuZ8uybHlWmqV03+zRzdwKL4tUnIp1MAQtp1mIFE1bc=
+github.com/gorilla/mux v1.7.4/go.mod h1:DVbg23sWSpFRCP0SfiEN6jmj59UnW/n46BH5rLB71So=
+github.com/wzshiming/go-bindata v4.0.0+incompatible h1:gO5UxwNlrqkNSAerjzjKzOGPHr2NPkTt8Z428GIR7jI=
+github.com/wzshiming/go-bindata v4.0.0+incompatible/go.mod h1:I1JLfFr6JaehMPaEaLpSv6+fbyyZGxYDkdBDRjKfHzM=
+github.com/wzshiming/openapi v0.0.0-20190613132828-ae58aca1f951 h1:l10pyvPQeyyIvu8bK7715S6RSyLNkCkcKh2DDYPWRx4=
+github.com/wzshiming/openapi v0.0.0-20190613132828-ae58aca1f951/go.mod h1:bGcw/6WQPCRn7A4S77rCct+0xY31fUn9A+89KWVmNNA=
+gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405 h1:yhCVgyC4o1eVCa2tZl7eS0r+SDo693bJlVdllGtEeKM=
+gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
+gopkg.in/yaml.v2 v2.2.2 h1:ZCJp+EgiOT7lHqUV2J862kp8Qj64Jo6az82+3Td9dZw=
+gopkg.in/yaml.v2 v2.2.2/go.mod h1:hI93XBmqTisBFMUTm0b8Fm+jr3Dg1NNxqwp+5A1VGuI=
