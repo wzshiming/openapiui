@@ -3,14 +3,12 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
 	"net/http"
-	"os"
 
-	"github.com/gorilla/handlers"
-	"github.com/gorilla/mux"
-	ui "github.com/wzshiming/openapiui"
-	"github.com/wzshiming/openapiui/redoc"
-	"github.com/wzshiming/openapiui/swaggerui"
+	"github.com/wzshiming/openapiui/v2/redoc"
+	"github.com/wzshiming/openapiui/v2/swaggereditor"
+	"github.com/wzshiming/openapiui/v2/swaggerui"
 )
 
 var port int
@@ -21,25 +19,15 @@ func init() {
 
 func main() {
 
-	mux0 := mux.NewRouter()
-	openAPI(mux0)
-	mux := handlers.RecoveryHandler()(mux0)
-	mux = handlers.CombinedLoggingHandler(os.Stdout, mux)
 	p := fmt.Sprintf(":%d", port)
-
-	fmt.Printf("Open http://127.0.0.1:%d/swagger/ or http://127.0.0.1:%d/redoc/ with your browser.\n", port, port)
-	err := http.ListenAndServe(p, mux)
+	http.Handle("/swaggerui/", http.FileServer(http.FS(swaggerui.FS)))
+	http.Handle("/swaggereditor/", http.FileServer(http.FS(swaggereditor.FS)))
+	http.Handle("/redoc/", http.FileServer(http.FS(redoc.FS)))
+	fmt.Printf("Open http://127.0.0.1:%d/swaggerui/ or http://127.0.0.1:%d/swaggereditor/ or http://127.0.0.1:%d/redoc/ with your browser.\n", port, port, port)
+	err := http.ListenAndServe(p, nil)
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
 	}
-	return
-}
 
-func openAPI(router *mux.Router) *mux.Router {
-	router.PathPrefix("/openapi.json").HandlerFunc(ui.HandleOpenapi)
-	router.PathPrefix("/swagger/openapi.json").HandlerFunc(ui.HandleOpenapi)
-	router.PathPrefix("/redoc/openapi.json").HandlerFunc(ui.HandleOpenapi)
-	router.PathPrefix("/swagger/").Handler(http.StripPrefix("/swagger", ui.HandleURL(swaggerui.Asset)))
-	router.PathPrefix("/redoc/").Handler(http.StripPrefix("/redoc", ui.HandleURL(redoc.Asset)))
-	return router
+	return
 }

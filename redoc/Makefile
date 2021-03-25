@@ -1,10 +1,7 @@
 IMAGE := redocly/redoc
 PWD   := $(shell pwd)
 
-.PHONY: redoc.go redoc
-redoc.go: redoc
-	cd redoc && go-bindata --nomemcopy --pkg redoc -o ../redoc.go ./
-
+.PHONY: redoc
 redoc:
 	docker pull ${IMAGE}
 	docker run --rm -v ${PWD}/redoc/:/redoc/ ${IMAGE} cp -r /usr/share/nginx/html/. /redoc
